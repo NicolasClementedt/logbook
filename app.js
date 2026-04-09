@@ -2,53 +2,31 @@
 
 const DEFAULT_TEMPLATES = [
   {
-    id: 'A', letter: 'A', name: 'Braços com carga',
+    id: 'A', letter: 'A', name: 'Superiores',
     exercises: [
-      { id: 'e1', name: 'Dips', prog: 'DDP' },
-      { id: 'e2', name: 'Chin Up', prog: 'DDP' },
-      { id: 'e3', name: 'Bulgarian Split Squat', prog: 'DDP' },
-      { id: 'e4', name: 'Ab Wheel', prog: 'DP' },
-      { id: 'e5', name: 'Ring Facepull', prog: 'DP' },
+      { id: 'e1', name: 'Dips', prog: 'Progressão Dubla/Tripla' },
+      { id: 'e2', name: 'Chin Up', prog: 'Progressão Dubla/Tripla' },
+      { id: 'e3', name: 'Flexão na Argola', prog: 'Progressão Dubla/Tripla' },
+       { id: 'e3', name: 'Remada aberta na Argola', prog: 'Progressão Dubla/Tripla' },
+      { id: 'e4', name: 'Elevação de Perna', prog: 'Volume Total' },
+      { id: 'e5', name: 'Ring Facepull', prog: 'Volume Total' },
       { id: 'e6', name: 'Ring Extension', prog: 'Cluster' },
       { id: 'e7', name: 'Ring Pelican Curl', prog: 'Cluster' },
     ]
   },
   {
-    id: 'B', letter: 'B', name: 'Ombro + posterior',
+    id: 'B', letter: 'B', name: 'Inferiores',
     exercises: [
-      { id: 'e1', name: 'Pike Push Up elevado', prog: 'DDP' },
-      { id: 'e2', name: 'Ring Pull Up', prog: 'DDP' },
-      { id: 'e3', name: 'Nordic Curl', prog: 'DDP' },
-      { id: 'e4', name: 'Reverse Crunch', prog: 'DP' },
-      { id: 'e5', name: 'Lateral Raise', prog: 'DP' },
-      { id: 'e6', name: 'Rear Delt Fly', prog: 'DP' },
-      { id: 'e7', name: 'Band External Rotation', prog: 'DP' },
+      { id: 'e1', name: 'Pistol Squat', prog: 'Progressão Linear' },
+      { id: 'e2', name: 'Nórdica', prog: 'Progressão Linear' },
+      { id: 'e3', name: 'Bulgarian Split Squat', prog: 'Progressão Dubla/Tripla' },
+      { id: 'e4', name: 'Stiff', prog: 'Progressão Dubla/Tripla' },
+      { id: 'e5', name: 'Hollow Body Hold', prog: 'Volume' },
+      { id: 'e6', name: 'Panturrilha em pé', prog: 'Progressão Dubla/Tripla' },
+      { id: 'e7', name: 'Tibial Raise', prog: 'Progressão Dubla/Tripla' },
     ]
   },
-  {
-    id: 'C', letter: 'C', name: 'Pernas',
-    exercises: [
-      { id: 'e1', name: 'Single Leg Hip Thrust', prog: 'DDP' },
-      { id: 'e2', name: 'SLDL Halter', prog: 'DDP' },
-      { id: 'e3', name: 'Ring Push Up / Archer', prog: 'DDP' },
-      { id: 'e4', name: 'Ring Row', prog: 'Cluster' },
-      { id: 'e5', name: 'Hollow Body Hold', prog: 'DP' },
-      { id: 'e6', name: 'Calf Raise unilateral', prog: 'DP' },
-      { id: 'e7', name: 'Tibial Raise', prog: 'DP' },
-    ]
-  },
-  {
-    id: 'D', letter: 'D', name: 'Braços com volume',
-    exercises: [
-      { id: 'e1', name: 'Dips (submáximo)', prog: 'Volume' },
-      { id: 'e2', name: 'Chin Up (submáximo)', prog: 'Volume' },
-      { id: 'e3', name: 'Bodyweight Squat', prog: 'DP' },
-      { id: 'e4', name: 'Ab Wheel', prog: 'DP' },
-      { id: 'e5', name: 'Ring Curl', prog: 'Cluster' },
-      { id: 'e6', name: 'Ring Extension', prog: 'Cluster' },
-      { id: 'e7', name: 'Ring Facepull', prog: 'DP' },
-    ]
-  }
+
 ]
 
 function loadTemplates() {
