@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logbook</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="header">
+  <div class="header-left">
+    <div class="logo">log<span>.</span></div>
+    <div class="header-date" id="headerDate"></div>
+  </div>
+  <button class="btn-icon" id="btnNewWorkout" title="Novo treino">+</button>
+</div>
+
+<!-- VIEW: HOME -->
+<div class="view active" id="viewHome">
+  <div class="section-label">Últimos treinos</div>
+  <div class="day-list" id="dayList"></div>
+</div>
+
+<!-- VIEW: SELECT TEMPLATE -->
+<div class="view" id="viewSelectTemplate">
+  <div style="margin-bottom:20px">
+    <div style="font-size:20px;font-weight:800;margin-bottom:4px">Novo treino</div>
+    <div style="font-size:13px;color:var(--text2)">Escolha o template do dia</div>
+  </div>
+  <div class="section-label">Templates</div>
+  <div class="template-grid" id="templateGrid"></div>
+  <button class="btn btn-ghost" style="margin-top:8px" onclick="showView('viewHome')">Cancelar</button>
+</div>
+
+<!-- VIEW: WORKOUT -->
+<div class="view" id="viewWorkout">
+  <div class="workout-header">
+    <div>
+      <div class="workout-title" id="workoutTitle"></div>
+      <div class="workout-subtitle" id="workoutSubtitle"></div>
+    </div>
+    <button class="btn-icon" onclick="confirmFinish()" title="Finalizar">✓</button>
+  </div>
+  <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+  <div id="exerciseList"></div>
+  <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px">
+    <button class="btn btn-primary" onclick="confirmFinish()">Finalizar treino</button>
+    <button class="btn btn-ghost" onclick="cancelWorkout()">Cancelar</button>
+  </div>
+</div>
+
+<!-- VIEW: HISTORY -->
+<div class="view" id="viewHistory">
+  <div style="font-size:20px;font-weight:800;margin-bottom:16px">Histórico</div>
+  <div id="historyList"></div>
+</div>
+
+<!-- VIEW: TEMPLATES -->
+<div class="view" id="viewTemplates">
+  <div style="font-size:20px;font-weight:800;margin-bottom:16px">Templates</div>
+  <div id="templateManageList"></div>
+</div>
+
+<!-- MODAL: WORKOUT DETAIL -->
+<div class="modal-overlay" id="modalDetail">
+  <div class="modal">
+    <div class="modal-title" id="modalDetailTitle"></div>
+    <div id="modalDetailBody"></div>
+    <button class="btn btn-danger" style="margin-top:16px" id="btnDeleteWorkout">Excluir registro</button>
+    <button class="btn btn-ghost" style="margin-top:8px" onclick="closeModal('modalDetail')">Fechar</button>
+  </div>
+</div>
+
+<!-- MODAL: CREATE TEMPLATE -->
+<div class="modal-overlay" id="modalCreateTemplate">
+  <div class="modal">
+    <div class="modal-title">Novo template</div>
+
+    <div style="display:grid;grid-template-columns:1fr 72px;gap:8px;margin-bottom:12px">
+      <input class="text-input" type="text" id="newTemplateName" placeholder="Nome do treino" style="margin-bottom:0">
+      <input class="text-input" type="text" id="newTemplateLetter" placeholder="E" maxlength="2" style="margin-bottom:0;text-align:center;font-weight:800;font-size:16px">
+    </div>
+
+    <div class="section-label">Exercícios</div>
+    <div class="ex-list" id="newTemplateExList"></div>
+
+    <div class="add-ex-form" style="margin-top:10px">
+      <input class="text-input" type="text" id="newExName" placeholder="Nome do exercício">
+      <select class="select-input" id="newExProg">
+        <option value="DDP">DDP</option>
+        <option value="DP">DP</option>
+        <option value="Cluster">Cluster</option>
+        <option value="Volume">Volume</option>
+      </select>
+      <button class="btn btn-ghost" style="font-size:13px;padding:10px" onclick="addExToNew()">+ adicionar exercício</button>
+    </div>
+
+    <button class="btn btn-primary" style="margin-top:16px" onclick="saveNewTemplate()">Salvar template</button>
+    <button class="btn btn-ghost" style="margin-top:8px" onclick="closeModal('modalCreateTemplate')">Cancelar</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <button class="nav-btn active" id="navHome" onclick="navigate('home')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+    Início
+  </button>
+  <button class="nav-btn" id="navHistory" onclick="navigate('history')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+    Histórico
+  </button>
+  <button class="nav-btn" id="navTemplates" onclick="navigate('templates')">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+    Templates
+  </button>
+</nav>
+
+<script src="app.js"></script>
+</body>
+</html>
